@@ -7,7 +7,7 @@ import BreezeNavLink from '@/Components/NavLink.vue';
 import BreezeResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
 import { Link } from '@inertiajs/inertia-vue3';
 
-const showingNavigationDropdown = ref(false);
+const showingNavigationDropdown = ref(true);
 </script>
 
 <template>
@@ -30,6 +30,7 @@ const showingNavigationDropdown = ref(false);
                                 <BreezeNavLink :href="route('dashboard')" :active="route().current('dashboard')">
                                     Dashboard
                                 </BreezeNavLink>
+                                <BreezeNavLink :href="route('create.coworker')" :active="route().current('create.coworker')">Novo Colaborador</BreezeNavLink>
                             </div>
                         </div>
 

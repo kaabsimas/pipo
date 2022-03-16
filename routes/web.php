@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -23,6 +24,9 @@ Route::get('/', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 });
+
+Route::get('/funcionario', [Controller::class, 'createEmployee'])->name('create.coworker');
+Route::post('/change/user/{user}', [Controller::class, 'changeUser'])->name('change.user');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
