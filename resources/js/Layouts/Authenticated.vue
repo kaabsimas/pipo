@@ -5,9 +5,11 @@ import BreezeDropdown from '@/Components/Dropdown.vue';
 import BreezeDropdownLink from '@/Components/DropdownLink.vue';
 import BreezeNavLink from '@/Components/NavLink.vue';
 import BreezeResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
+import Button from '@/Components/DropdownButtom.vue'
 import { Link } from '@inertiajs/inertia-vue3';
 
 const showingNavigationDropdown = ref(true);
+const props = defineProps(['users']);
 </script>
 
 <template>
@@ -20,16 +22,13 @@ const showingNavigationDropdown = ref(true);
                         <div class="flex">
                             <!-- Logo -->
                             <div class="shrink-0 flex items-center">
-                                <Link :href="route('dashboard')">
+                                <Link :href="route('create.coworker')">
                                     <BreezeApplicationLogo class="block h-9 w-auto" />
                                 </Link>
                             </div>
 
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <BreezeNavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                                    Dashboard
-                                </BreezeNavLink>
                                 <BreezeNavLink :href="route('create.coworker')" :active="route().current('create.coworker')">Novo Colaborador</BreezeNavLink>
                             </div>
                         </div>
@@ -49,11 +48,11 @@ const showingNavigationDropdown = ref(true);
                                             </button>
                                         </span>
                                     </template>
-
+                                    
                                     <template #content>
-                                        <BreezeDropdownLink :href="route('logout')" method="post" as="button">
-                                            Log Out
-                                        </BreezeDropdownLink>
+                                        <Button v-for="user in users" :key="user.id" as="button" @click="$emit('change', {data: user})">
+                                            {{user.name}}
+                                        </Button>
                                     </template>
                                 </BreezeDropdown>
                             </div>
@@ -74,8 +73,8 @@ const showingNavigationDropdown = ref(true);
                 <!-- Responsive Navigation Menu -->
                 <div :class="{'block': showingNavigationDropdown, 'hidden': ! showingNavigationDropdown}" class="sm:hidden">
                     <div class="pt-2 pb-3 space-y-1">
-                        <BreezeResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                            Dashboard
+                        <BreezeResponsiveNavLink :href="route('create.coworker')" :active="route().current('create.coworker')">
+                            Novo Colaborador
                         </BreezeResponsiveNavLink>
                     </div>
 
@@ -87,9 +86,9 @@ const showingNavigationDropdown = ref(true);
                         </div>
 
                         <div class="mt-3 space-y-1">
-                            <BreezeResponsiveNavLink :href="route('logout')" method="post" as="button">
-                                Log Out
-                            </BreezeResponsiveNavLink>
+                            <Button v-for="user in users" :key="user.id" as="button" @click="$emit('change', {data: user})">
+                                {{user.name}}
+                            </Button>
                         </div>
                     </div>
                 </div>

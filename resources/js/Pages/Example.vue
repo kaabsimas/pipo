@@ -12,11 +12,10 @@ export default {
     },
     methods: {
         changeUser(event) {
-            var userId = event.target.dataset.key;
+            var userId = event.data.id;
             
             axios.post(`/change/user/${userId}`)
             .then(response => {
-                console.log(response);
                 this.$attrs.auth.user = response.data;
             });
         }
@@ -26,7 +25,7 @@ export default {
 
 <template>
     <Head title="Novo Colaborador"/>
-    <BreezeAuthenticatedLayout>
+    <BreezeAuthenticatedLayout :users="users" @change="changeUser">
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight" >
                 Cadastre um novo colaborador aqui
@@ -34,13 +33,12 @@ export default {
             </h2>
         </template>
         <div class="py-12">
-            <div class="dropdown">
-                <label tabindex="0" class="btn m-1">Curent User: {{$attrs.auth.user.name}}</label>
-                <ul tabindex="0" class="dropdown-content menu p-2 bg-base-100 rounded-box w-56">
-                    <li v-for="user in users" :key="user.id"  @click="changeUser">
-                        <a :data-key="user.id">{{user.name}}</a>
-                    </li>
-                </ul>   
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                    <div class="p-6 bg-white border-b border-gray-200">
+                        You're logged in!
+                    </div>
+                </div>
             </div>
         </div>
     </BreezeAuthenticatedLayout>

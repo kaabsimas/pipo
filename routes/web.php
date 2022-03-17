@@ -16,20 +16,7 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
-
-Route::get('/funcionario', [Controller::class, 'createEmployee'])->name('create.coworker');
+Route::get('/', [Controller::class, 'createEmployee'])->name('create.coworker');
 Route::post('/change/user/{user}', [Controller::class, 'changeUser'])->name('change.user');
-
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 require __DIR__.'/auth.php';
