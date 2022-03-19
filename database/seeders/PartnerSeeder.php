@@ -37,6 +37,26 @@ class PartnerSeeder extends Seeder
                 ]),
                 'created_at' => new \DateTime(),
                 'updated_at' => new \DateTime(),
+            ],
+            [
+                'title' => 'Plano odontológico Dental Sorriso',
+                'subscription_form_schema' => json_encode([
+                    'nome' => ['type' => 'text', 'label' => 'nome'],
+                    'cpf' => ['type' => 'number', 'label' => 'CPF', 'mask' => '###.###.###-##'],
+                    'peso' => ['type' => 'number', 'label' => 'Peso(Kg)'],
+                    'altura' => ['type' => 'number', 'label' => 'Altura(cm)']
+                ]),
+                'created_at' => new \DateTime(),
+                'updated_at' => new \DateTime(),
+            ],
+            [
+                'title' => 'Plano de saúde mental Mente Sã, Corpo São',
+                'subscription_form_schema' => json_encode([
+                    'cpf' => ['type' => 'number', 'label' => 'CPF', 'mask' => '###.###.###-##'],
+                    'horas' => ['type' => 'number', 'label' => 'Horas meditadas nos últimos 7 dias']
+                ]),
+                'created_at' => new \DateTime(),
+                'updated_at' => new \DateTime(),
             ]
         ]);
     }
