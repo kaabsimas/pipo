@@ -20,6 +20,13 @@ class Controller extends BaseController
         return response()->json($user, 200);
     }
 
+    public function getPartners(User $user)
+    {
+        $partners = $user->partner;
+
+        return response()->json($partners, 200);
+    }
+
     public function createEmployee()
     {
         $users = User::get();
