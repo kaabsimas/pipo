@@ -2426,9 +2426,6 @@ body[dir="rtl"] .checkbox:checked,
 .max-w-6xl {
   max-width: 72rem;
 }
-.max-w-xl {
-  max-width: 36rem;
-}
 .max-w-7xl {
   max-width: 80rem;
 }
@@ -2523,9 +2520,6 @@ body[dir="rtl"] .checkbox:checked,
 .border-t {
   border-top-width: 1px;
 }
-.border-r {
-  border-right-width: 1px;
-}
 .border-b-2 {
   border-bottom-width: 2px;
 }
@@ -2542,10 +2536,6 @@ body[dir="rtl"] .checkbox:checked,
 .border-gray-200 {
   --tw-border-opacity: 1;
   border-color: rgb(229 231 235 / var(--tw-border-opacity));
-}
-.border-gray-400 {
-  --tw-border-opacity: 1;
-  border-color: rgb(156 163 175 / var(--tw-border-opacity));
 }
 .border-transparent {
   border-color: transparent;
@@ -2699,9 +2689,6 @@ body[dir="rtl"] .checkbox:checked,
 }
 .leading-tight {
   line-height: 1.25;
-}
-.tracking-wider {
-  letter-spacing: 0.05em;
 }
 .tracking-widest {
   letter-spacing: 0.1em;
